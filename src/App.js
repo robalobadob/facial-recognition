@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import Particles from "react-tsparticles";
+import Clarifai from 'clarifai';
+import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
 import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import './App.css';
+
+const app = new Clarifai.App({
+  apiKey: 'ff64ce9e3d394e6ba3b204fd080390dc'
+});
 
 const particlesOptions = {
     fpsLimit: 60,
@@ -93,6 +99,17 @@ class App extends Component {
 
   onButtonSubmit = () => {
     console.log('click');
+    App.models.predict(
+      "ff64ce9e3d394e6ba3b204fd080390dc", 
+      "https://samples.clarifai.com/face-det.jpg")
+      .then( 
+      function(response) {
+        console.log("click")
+      },
+      function(err) {
+        // there was an error
+      }
+    );
   }
 
   render() {
@@ -116,7 +133,7 @@ class App extends Component {
       <ImageLinkForm 
         onInputChange={this.onInputChange} 
         onButtonSubmit={this.onButtonSubmit}/>
-     {/*<FaceRecognition /> */}
+      <FaceRecognition />
     </div>
   );
 }
