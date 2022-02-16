@@ -63,15 +63,15 @@ const particlesOptions = {
         enable: true,
         outMode: "bounce",
         random: false,
-        speed: 4,
+        speed: 1,
         straight: false,
       },
       number: {
         density: {
           enable: true,
-          area: 800,
+          area: 1250,
         },
-        value: 80,
+        value: 150,
       },
       opacity: {
         value: 0.6,
@@ -97,6 +97,12 @@ class App extends Component {
       route: 'signin',
       isSignedIn: false
     }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/')
+      .then(response => response.json())
+      .then(console.log)
   }
 
   calculateFaceLocation = (data) => {
