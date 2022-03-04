@@ -1,8 +1,8 @@
 import React, { useReducer } from 'react';
 
 class Signin extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             signInEmail: '',
             signInPassword: ''
