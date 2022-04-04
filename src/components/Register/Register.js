@@ -2,8 +2,8 @@ import { render } from '@testing-library/react';
 import React from 'react';
 
 class Register extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             email: '',
             password: '',
