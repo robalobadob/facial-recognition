@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 
 class Signin extends React.Component {
     constructor(props) {
