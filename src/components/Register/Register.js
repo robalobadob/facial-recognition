@@ -29,6 +29,7 @@ class Register extends React.Component {
                 'Content-Type': 'application/json', 
                 'Access-Control-Allow-Origin': '*'
             },
+            mode: 'cors',
             body: JSON.stringify({
                 email: this.state.email,
                 password: this.state.password,
